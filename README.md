@@ -9,7 +9,7 @@ chmod 700 private
 touch index.txt
 openssl rand -hex 16 > serial
 touch openssl.cnf
-
+```
 ## OpenSSL Configuration File
 
 1. Create the 'openssl.cnf' with the following content:
