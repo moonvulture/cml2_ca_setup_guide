@@ -77,14 +77,14 @@ subjectKeyIdentifier = hash
 authorityKeyIdentifier = keyid,issuer:always
 keyUsage = critical,digitalSignature,keyEncipherment
 extendedKeyUsage = serverAuth
-
+```
 
 ## Generating Root CA key and certificate
-
+```bash
 openssl genrsa -aes256 -out private/root-ca.key 4096
 chmod 400 private/root-ca.key
 openssl req -config openssl.cnf -key private/root-ca.key -new -x509 -days 7300 -sha256 -extensions v3_ca -out certs/root-ca.crt
-
+```
 ## Router configuration
 
 [on router] # https://community.cisco.com/t5/networking-knowledge-base/creating-a-csr-authenticating-a-ca-and-enrolling-certificates-on/ta-p/4436090
