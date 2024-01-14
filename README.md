@@ -108,11 +108,15 @@ crypto pki import superlabRootCA certificate
 ```
 ## Troubleshooting
 
-### Inspect the root CA certificate
-```
-inspect certificate: 
+- **inspect certificate:**
+```bash 
 openssl x509 -noout -text -in certs/root-ca.crt
-inspect csr:
+```
+- **inspect csr:**
+```bash
 openssl req -in ../iosv-csw01.csr -text -noout
-show crypto
+```
+- **show crypto**
+```bash
 show crypto pki certificates verbose superlabRootCA
+```
