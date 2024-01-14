@@ -1,0 +1,9 @@
+certs/
+crl/
+newcerts/
+private/
+index.txt
+index.txt.attr
+index.txt.old
+serial
+serial.old 
