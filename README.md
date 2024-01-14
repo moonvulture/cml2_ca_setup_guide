@@ -87,10 +87,11 @@ openssl req -config openssl.cnf -key private/root-ca.key -new -x509 -days 7300 -
 ```
 ## Router configuration
 
-[on router] # https://community.cisco.com/t5/networking-knowledge-base/creating-a-csr-authenticating-a-ca-and-enrolling-certificates-on/ta-p/4436090
+For more details, see [Cisco Community Guide](https://community.cisco.com/t5/networking-knowledge-base/creating-a-csr-authenticating-a-ca-and-enrolling-certificates-on/ta-p/4436090).
 
+```bash
 crypto key generate rsa label superlab modulus 2048
-crypto pki tustpoint superlabRootCA
+crypto pki trustpoint superlabRootCA
 subject-name C=US, ST=Lab, O=Superlab, CN=iosv-csw01.superlab.win
 subject-alt-name iosv-csw01
 rsakeypair superlab
@@ -98,13 +99,13 @@ revocation-check none
 enrollment terminal pem
 exit
 crypto pki enroll superlabRootCA
-copy csr
-issue cert
-crpyto pki authenticate superlabRootCA
-copy in root-ca.crt
+# Copy CSR
+# Issue cert from CA Server
+crypto pki authenticate superlabRootCA
+# Copy in root-ca.crt
 crypto pki import superlabRootCA certificate
-paste cert issued by ca server
-
+# Paste cert issued by CA Server
+```
 ## Troubleshooting
 
 ### Inspect the root CA certificate
